@@ -1,9 +1,9 @@
-.listOfCards {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+@import "./../styles/Fonts.scss";
 
-.card {
-  margin-bottom: 50px;
+.headline {
+  color: white;
+  font-size: $size-large;
+  font-family: $font-headline;
+  text-transform: capitalize;
+  margin: 35px;
 }

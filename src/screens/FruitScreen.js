@@ -12,9 +12,10 @@ const FruitScreen = (
     const { setFruit } = useFruit;
 
     const listOfFruits = [
+        FruitEnum._NONE,
         FruitEnum._PARA,
         FruitEnum._ZOAN,
-        FruitEnum._LOGIA
+        FruitEnum._LOGIA,
     ];
 
     return (
@@ -22,15 +23,13 @@ const FruitScreen = (
             { listOfFruits.map((_it) =>
                 <div className={ styles.card }
                      onClick={ () => {
-                         history.push(ROUTE._GROUP);
+                         history.push(ROUTE._CHARACTER);
                          setFruit(_it.title);
                      } }>
                     <Card title={ _it.title }
                           cover={ <img alt={ _it.title } src={ _it.image } /> }
                           style={{ width: '100%' }}
-                          hoverable>
-                        <p>{ [].join(' ') }</p>
-                    </Card>
+                          hoverable />
                 </div>
             )}
         </main>

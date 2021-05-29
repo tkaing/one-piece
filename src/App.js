@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
 import 'antd/dist/antd.css';
 
 import FruitScreen from "./screens/FruitScreen";
-import GroupScreen from "./screens/GroupScreen";
 import CharacterScreen from "./screens/CharacterScreen";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
@@ -19,11 +18,9 @@ const client = new ApolloClient({
 const App = () => {
 
     const [fruit, setFruit] = useState();
-    const [group, setGroup] = useState();
 
     const use = {
         Fruit: ({ fruit: fruit, setFruit: setFruit }),
-        Group: ({ group: group, setGroup: setGroup }),
     };
 
     return (
@@ -34,12 +31,8 @@ const App = () => {
                         <Route path={ ROUTE._FRUIT } exact>
                             <FruitScreen useFruit={ use.Fruit } />
                         </Route>
-                        <Route path={ ROUTE._GROUP } exact>
-                            <GroupScreen useGroup={ use.Group } />
-                        </Route>
                         <Route path={ ROUTE._CHARACTER } exact>
-                            <CharacterScreen useFruit={ use.Fruit }
-                                             useGroup={ use.Group } />
+                            <CharacterScreen useFruit={ use.Fruit } />
                         </Route>
                     </Switch>
                 </Router>
